@@ -1,6 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const path = require('path');
 const app = express();
+
+// Allow Netlify origin
+app.use(cors({
+  origin: 'https://hostaway-api.netlify.app/' // replace with your real Netlify URL
+}));
 
 // Serve static files from /public
 app.use(express.static(path.join(__dirname, 'public')));

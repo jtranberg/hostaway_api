@@ -22,6 +22,18 @@ app.get('/ping', (_, res) => {
   res.send('pong');
 });
 
+app.use(express.json()); // Ensure JSON parsing middleware is enabled
+
+app.post('/bookings', (req, res) => {
+  const { checkin, checkout, totalNights, totalPrice } = req.body;
+  console.log('📥 New booking received:', { checkin, checkout, totalNights, totalPrice });
+
+  // Simulate a response
+  res.json({ success: true, message: 'Booking confirmed!', received: { checkin, checkout, totalNights, totalPrice } });
+});
+
+
+
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

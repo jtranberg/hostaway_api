@@ -167,7 +167,47 @@ closeModalBtn.addEventListener('click', () => {
   modal.classList.add('hidden');
 });
 
+
+
 confirmBtn.addEventListener('click', () => {
-  alert('Booking submitted!');
-  modal.classList.add('hidden');
+  const successMsg = document.getElementById('success-message');
+
+  // Send booking data to backend
+  fetch('https://hostaway-api-xcye.onrender.com/bookings', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      checkin: selectedStart,
+      checkout: selectedEnd,
+      totalNights: totalNightsEl.textContent,
+      totalPrice: totalPriceEl.textContent
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log('✅ Booking response:', data);
+
+    // Show success animation
+    successMsg.classList.remove('hidden');
+    successMsg.classList.add('show');
+
+    confirmBtn.disabled = true;
+    closeModalBtn.disabled = true;
+
+    // Auto-close modal
+    setTimeout(() => {
+      modal.classList.add('hidden');
+      successMsg.classList.remove('show');
+      successMsg.classList.add('hidden');
+
+      confirmBtn.disabled = false;
+      closeModalBtn.disabled = false;
+    }, 2500);
+  })
+  .catch(err => {
+    alert('Error submitting booking. Please try again.');
+    console.error(err);
+  });
 });
+
+

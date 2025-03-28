@@ -5,7 +5,8 @@ const app = express();
 
 // Allow Netlify origin
 app.use(cors({
-  origin: 'https://hostaway-api.netlify.app/' // replace with your real Netlify URL
+  origin: ['https://hostaway-api.netlify.app', 'http://localhost:3000']
+  
 }));
 
 // Serve static files from /public

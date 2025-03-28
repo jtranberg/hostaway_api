@@ -135,8 +135,9 @@ function updateSelectionDisplay() {
     totalNightsEl.textContent = '0';
     totalPriceEl.textContent = '0';
   }
+
   // Show modal if valid range selected
-if (selectedStart && selectedEnd) {
+  if (selectedStart && selectedEnd) {
     modalCheckin.textContent = selectedStart.toDateString();
     modalCheckout.textContent = selectedEnd.toDateString();
     modalNights.textContent = totalNightsEl.textContent;
@@ -144,7 +145,6 @@ if (selectedStart && selectedEnd) {
     modalTotal.textContent = totalPriceEl.textContent;
     modal.classList.remove('hidden');
   }
-  
 }
 
 // Render 12 months

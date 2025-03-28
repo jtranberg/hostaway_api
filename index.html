@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <div id="booking-calendar"></div>
+<div id="selected-dates">
+  <p>Check-in: <span id="checkin-date">–</span></p>
+  <p>Check-out: <span id="checkout-date">–</span></p>
+  <p>Total nights: <span id="total-nights">0</span></p>
+  <p>Total price: $<span id="total-price">0</span></p>
+
+</div>
+
+<div id="booking-summary-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Booking Summary</h2>
+      <p><strong>Check-in:</strong> <span id="modal-checkin">–</span></p>
+      <p><strong>Check-out:</strong> <span id="modal-checkout">–</span></p>
+      <p><strong>Total nights:</strong> <span id="modal-nights">0</span></p>
+      <p><strong>Price per night:</strong> $<span id="modal-rate">150</span></p>
+      <p><strong>Total price:</strong> $<span id="modal-total">0</span></p>
+      <button id="confirm-booking">Book Now</button>
+      <button id="close-modal">Close</button>
+    </div>
+  </div>
+  
+<script src="script.js"></script>
+</body>
+</html>
